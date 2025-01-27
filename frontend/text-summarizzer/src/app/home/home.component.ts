@@ -14,11 +14,21 @@ import { HttpClientModule } from '@angular/common/http';
 export class HomeComponent {
   text!: string;
   summary!: string;
+  isLoading: boolean = false;
   constructor(private summaryService:SummaryService){  }
-  submit(form:NgForm){
-    this.summaryService.summarizeText(this.text).subscribe((data: any) => {
-      this.summary = JSON.stringify(data); // Store the summary response
-      console.log(data);
+  submit(form: NgForm) {
+    this.isLoading = true; // Start loading
+
+    this.summaryService.summarizeText(this.text).subscribe({
+      next: (response: { summary: string }) => {
+        this.summary = response.summary;
+        this.isLoading = false; // Stop loading
+      },
+      error: (error) => {
+        console.error('Error summarizing text:', error);
+        alert('An error occurred while summarizing the text. Please try again.');
+        this.isLoading = false; // Stop loading on error
+      },
     });
   }
   reset(){

@@ -5,12 +5,21 @@
             <textarea name="text" id="text" [(ngModel)]="text" required></textarea>
         </div>
         <div class="btn">
-            <button type="submit">Summarize</button>
+            <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                {{ isLoading ? 'Summarizing...' : 'Summarize' }}
+              </button>
             <button (click)="reset()">Reset</button>
         </div>
     </form>
+</div>
+<div class="container">
     <div class="summary" *ngIf="summary">
         <h2 class="text-bold">Summary</h2>
         <p>{{ summary }}</p>
+      </div>
+      <div *ngIf="isLoading" class="d-flex justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
 </div>
