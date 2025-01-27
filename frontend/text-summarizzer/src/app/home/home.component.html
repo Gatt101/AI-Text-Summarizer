@@ -1,0 +1,16 @@
+<div class="container">
+    <form action="" (ngSubmit)="submit(form)" #form="ngForm">
+        <div class="">
+            <label for="text">Enter text to summarize:</label>
+            <textarea name="text" id="text" [(ngModel)]="text" required></textarea>
+        </div>
+        <div class="btn">
+            <button type="submit">Summarize</button>
+            <button (click)="reset()">Reset</button>
+        </div>
+    </form>
+    <div class="summary" *ngIf="summary">
+        <h2 class="text-bold">Summary</h2>
+        <p>{{ summary }}</p>
+      </div>
+</div>
