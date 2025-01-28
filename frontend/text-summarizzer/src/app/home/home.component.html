@@ -1,16 +1,16 @@
 <div class="container">
-    <form action="" (ngSubmit)="submit(form)" #form="ngForm">
-        <div class="">
-            <label for="text">Enter text to summarize:</label>
-            <textarea name="text" id="text" [(ngModel)]="text" required></textarea>
-        </div>
-        <div class="btn">
-            <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-                {{ isLoading ? 'Summarizing...' : 'Summarize' }}
-              </button>
-            <button (click)="reset()">Reset</button>
-        </div>
-    </form>
+  <form action="" (ngSubmit)="submit(form)" #form="ngForm">
+      <div class="">
+          <label for="text">Enter text to summarize:</label>
+          <textarea name="text" id="text" [(ngModel)]="text" required></textarea>
+      </div>
+      <div class="btn">
+          <button type="submit" class="btn btn-primary">
+              {{ isLoading ? 'Summarizing...' : 'Summarize' }}
+          </button>
+          <button type="button" (click)="reset()">Reset</button>
+      </div>
+  </form>
 </div>
 <div class="container">
     <div class="summary" *ngIf="summary">
