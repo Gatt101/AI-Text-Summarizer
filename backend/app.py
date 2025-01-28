@@ -5,7 +5,7 @@ from transformers import pipeline
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app)  # This allows all origins by default
+CORS(app)  # This allows all origins bvy default
 
 # Initialize the summarization pipeline
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
