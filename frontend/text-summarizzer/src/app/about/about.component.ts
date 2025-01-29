@@ -1,12 +1,13 @@
+import { KeyValuePipe, NgFor, TitleCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [TitleCasePipe,NgFor,KeyValuePipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
-
+  
 }

@@ -1,0 +1,78 @@
+.contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for better contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern look */
+  }
+  
+  .container1 img {
+    height: 500px;
+    width: 500px;
+    object-fit: cover; /* Ensures the image scales well */
+    border: 5px solid #010101;
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the image */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .container1 img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .container h1 {
+    font-size: 40px;
+    font-weight: 600; /* Slightly bolder for better visibility */
+    font-family: "Cursive", sans-serif;
+    color: #333; /* Dark gray for softer text contrast */
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .container2 p {
+    font-size: 18px;
+    font-weight: 400; /* Better readability */
+    font-stretch: expanded; /* Balanced text expansion */
+    line-height: 1.6; /* Improves readability */
+    color: #555; /* Soft gray for paragraph text */
+  }
+  
+  .container2 h2 {
+    font-size: 48px;
+    font-weight: 700; /* Bolder for emphasis */
+    color: #010101;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .container2 {
+    max-width: 600px; /* Restrict width for better text alignment */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .contain {
+      flex-direction: column; /* Stack items for smaller screens */
+      gap: 30px;
+    }
+  
+    .container1 img {
+      height: 300px;
+      width: 300px;
+    }
+  
+    .container h1 {
+      font-size: 32px;
+    }
+  
+    .container2 h2 {
+      font-size: 36px;
+    }
+  
+    .container2 p {
+      font-size: 16px;
+    }
+  }
+  
