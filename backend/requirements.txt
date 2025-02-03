@@ -1,0 +1,5 @@
+flask
+flask-cors
+transformers
+torch  # Required for running Hugging Face models
+gunicorn  # Required for deployment
