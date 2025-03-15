@@ -1,5 +1,5 @@
-flask
-flask-cors
-transformers
-torch  # Required for running Hugging Face models
+flask==3.0.2
+flask-cors==4.0.0
+transformers==4.38.2
+torch==2.2.1
 gunicorn  # Required for deployment

@@ -1,25 +1,57 @@
-<div class="container">
-  <form action="" (ngSubmit)="submit(form)" #form="ngForm">
-      <div class="">
-          <label for="text">Enter text to summarize:</label>
-          <textarea name="text" id="text" [(ngModel)]="text" required></textarea>
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <h1 class="text-center mb-4 fw-bold">Text Summarizer</h1>
+      
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <form (ngSubmit)="submit(form)" #form="ngForm">
+            <div class="mb-3">
+              <label for="text" class="form-label">Enter text to summarize:</label>
+              <textarea
+                name="text"
+                id="text"
+                [(ngModel)]="text"
+                required
+                class="form-control"
+                placeholder="Paste your text here..."
+                rows="6"
+              ></textarea>
+            </div>
+            
+            <div class="d-flex gap-2">
+              <button
+                type="submit"
+                [disabled]="isLoading"
+                class="btn btn-primary flex-grow-1"
+              >
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                {{ isLoading ? 'Summarizing...' : 'Summarize' }}
+              </button>
+              <button
+                type="button"
+                (click)="reset()"
+                class="btn btn-secondary flex-grow-1"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="btn">
-          <button type="submit" class="btn btn-primary">
-              {{ isLoading ? 'Summarizing...' : 'Summarize' }}
-          </button>
-          <button type="button" (click)="reset()">Reset</button>
-      </div>
-  </form>
-</div>
-<div class="container">
-    <div class="summary" *ngIf="summary">
-        <h2 class="text-bold">Summary</h2>
-        <p>{{ summary }}</p>
-      </div>
-      <div *ngIf="isLoading" class="d-flex justify-content-center">
+
+      <div *ngIf="isLoading" class="text-center my-4">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
+
+      <div *ngIf="summary" class="card shadow-sm summary-card">
+        <div class="card-body">
+          <h2 class="card-title h4 mb-3">Summary</h2>
+          <p class="card-text">{{ summary }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
