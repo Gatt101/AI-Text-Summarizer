@@ -12,18 +12,26 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  text!: string;
-  summary!: string;
+  text: string = '';
+  summary: string = '';
   isLoading: boolean = false;
+  wordCount: number = 0;
+  charCount: number = 0;
 
   constructor(private summaryService: SummaryService) {}
 
+  updateCounts() {
+    this.charCount = this.text.length;
+    this.wordCount = this.text.trim().split(/\s+/).filter(word => word.length > 0).length;
+  }
+
   submit(form: NgForm) {
-    this.isLoading = true; // Start loading
+    if (!this.text.trim()) return;
+    
+    this.isLoading = true;
 
     this.summaryService.summarizeText(this.text).subscribe({
       next: (response: { summary: string }) => {
-        // Filter out unwanted messages
         if (!response.summary.includes("CNN.com will feature iReporter photos")) {
           this.summary = response.summary;
         }
@@ -32,7 +40,7 @@ export class HomeComponent {
       error: (error) => {
         console.error('Error summarizing text:', error);
         alert('An error occurred while summarizing the text. Please try again.');
-        this.isLoading = false; // Stop loading on error
+        this.isLoading = false;
       },
     });
   }
@@ -40,6 +48,17 @@ export class HomeComponent {
   reset() {
     this.text = '';
     this.summary = '';
-    this.isLoading = false; // Reset loading status
+    this.isLoading = false;
+    this.updateCounts();
+  }
+
+  copyToClipboard(text: string) {
+    navigator.clipboard.writeText(text).then(() => {
+      // You could add a toast notification here if you want
+      alert('Summary copied to clipboard!');
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+      alert('Failed to copy to clipboard');
+    });
   }
 }
