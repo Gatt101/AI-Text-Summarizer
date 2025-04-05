@@ -3,15 +3,17 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { SummaryService } from '../service/summary.service';
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxRetroGridComponent} from "@omnedia/ngx-retro-grid";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, NgIf, HttpClientModule],
+  imports: [FormsModule, NgIf, HttpClientModule,NgxRetroGridComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
   text: string = '';
   summary: string = '';
   isLoading: boolean = false;
@@ -27,7 +29,7 @@ export class HomeComponent {
 
   submit(form: NgForm) {
     if (!this.text.trim()) return;
-    
+
     this.isLoading = true;
 
     this.summaryService.summarizeText(this.text).subscribe({
@@ -35,7 +37,7 @@ export class HomeComponent {
         if (!response.summary.includes("CNN.com will feature iReporter photos")) {
           this.summary = response.summary;
         }
-        this.isLoading = false; 
+        this.isLoading = false;
       },
       error: (error) => {
         console.error('Error summarizing text:', error);
@@ -61,4 +63,7 @@ export class HomeComponent {
       alert('Failed to copy to clipboard');
     });
   }
+
+
+
 }

@@ -1,11 +1,26 @@
-<div class="container">
+<!--  banner page-->
+<div class="container-fluid vh-100 flex flex-column justify-content-center align-items-center">
+  <div class="flex flex-column justify-content-center align-items-center">
+    <!-- Adding ngx-retro-grid component -->
+    <div class="mt-4">
+      <om-retro-grid>
+        <h1 class="text-white">Transform lengthy content into short, crisp summaries with AI.</h1>
+        <p class="text-white font-stretch-normal">Powered by advanced natural language processing, this tool helps you summarize articles, documents, essays, or any content in just a click.</p>
+
+      </om-retro-grid>
+    </div>
+  </div>
+</div>
+<!--  banner page end-->
+
+<div class="container-text">
   <div class="header-section text-center mb-5">
     <h1 class="display-4 fw-bold mb-3">Text Summarizer</h1>
     <p class="lead text-muted">Transform long texts into concise summaries using AI</p>
   </div>
-      
+
   <div class="card shadow-sm mb-4">
-    <div class="card-body ">
+    <div class="card-body">
       <form (ngSubmit)="submit(form)" #form="ngForm">
         <div class="mb-4">
           <label for="text" class="form-label fw-semibold">Enter text to summarize:</label>
@@ -25,7 +40,7 @@
             </small>
           </div>
         </div>
-            
+
         <div class="d-flex gap-3">
           <button
             type="submit"
@@ -66,4 +81,3 @@
     </div>
   </div>
 </div>
- 
