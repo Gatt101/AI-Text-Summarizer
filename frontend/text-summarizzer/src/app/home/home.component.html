@@ -1,17 +1,19 @@
-<!--  banner page-->
-<div class="container-fluid vh-100 flex flex-column justify-content-center align-items-center">
-  <div class="flex flex-column justify-content-center align-items-center">
-    <!-- Adding ngx-retro-grid component -->
-    <div class="mt-4">
-      <om-retro-grid>
-        <h1 class="text-white">Transform lengthy content into short, crisp summaries with AI.</h1>
-        <p class="text-white font-stretch-normal">Powered by advanced natural language processing, this tool helps you summarize articles, documents, essays, or any content in just a click.</p>
-
-      </om-retro-grid>
+<!-- 🔮 Banner Section Start -->
+<div class=" container-fluid bg-dark text-white vh-100 d-flex justify-content-center align-items-center text-center">
+  <!-- Custom Web Component Wrapper -->
+  <om-retro-grid [gridColor]="'#fff'" [fadeColor]="'rgb(15, 15, 15)'" class="  h-100 w-100 ">
+    <div class="content w-100 h-100">
+      <h1>
+        Simplify long texts into clear summaries instantly.
+        <om-neon-underline [middleColor]="'#8e7404c9'" [sideColor]="'#bf4590'"></om-neon-underline>
+      </h1>
+      <p class="lead text-white m-0">
+        Powered by advanced natural language processing, this tool helps you summarize articles, documents, essays, or any content in just a click.
+      </p>
     </div>
-  </div>
+  </om-retro-grid>
 </div>
-<!--  banner page end-->
+<!-- 🔮 Banner Section End -->
 
 <div class="container-text">
   <div class="header-section text-center mb-5">

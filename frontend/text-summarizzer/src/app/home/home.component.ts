@@ -4,11 +4,12 @@ import { SummaryService } from '../service/summary.service';
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxRetroGridComponent} from "@omnedia/ngx-retro-grid";
+import {NgxNeonUnderlineComponent} from "@omnedia/ngx-neon-underline";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, NgIf, HttpClientModule,NgxRetroGridComponent],
+  imports: [FormsModule, NgIf, HttpClientModule,NgxRetroGridComponent,NgxNeonUnderlineComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
